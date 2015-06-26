@@ -5,15 +5,28 @@
 @color5: #00ADEF;
 @color6: #652C90;
 
-@w: 5;// + zoom - 16;
+@w: 1;// + zoom - 16;
 
 Map {
   background-color: white;
 }
 
-#building {
-  polygon-fill: white;
-  
+#admin['maritime'=0] {
+  ['admin_level'<=2] {
+    line-width: @w * 3;
+    line-color: pink;
+    line-cap: round;
+    line-join: round;
+  }
+  ['admin_level'>=3] {
+    line-width: @w;
+    line-color: pink;
+    line-cap: round;
+    line-join: round;
+  }
+}
+
+#water {
   ::red {
     line-width: 7 * @w;
     line-color: @color1;
@@ -64,4 +77,6 @@ Map {
     line-cap: round;
     line-join: round;
    }
+  
+  polygon-fill: #cadeef;
 }
